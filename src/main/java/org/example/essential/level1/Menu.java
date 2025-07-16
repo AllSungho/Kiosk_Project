@@ -17,7 +17,17 @@ public class Menu {
 
         this.juiceList = new ArrayList<>();
     }
-    public void selectBurger() {
-
+    // 버거 카테고리 클릭 시 볼 수 카테고리에 포함되는 버거를 출력
+    public void viewBurger() {
+        System.out.println("================================================================");
+        System.out.println("[ SHAKESHACK MENU ]");
+        for(MenuItem i : burgerList){
+            System.out.println(burgerList.indexOf(i) + 1 + ". " + i.getName() + "\t| W " + i.getPrice() + "\t|\t" + i.getExplain());
+        }
+        System.out.println("0. 종료\t\t\t| 종료");
+        System.out.println("================================================================");
+    }
+    public MenuItem selectBurger(int select){
+        return null;
     }
 }
