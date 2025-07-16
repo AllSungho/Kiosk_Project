@@ -27,7 +27,21 @@ public class Menu {
         System.out.println("0. 종료\t\t\t| 종료");
         System.out.println("================================================================");
     }
-    public MenuItem selectBurger(int select){
-        return null;
+    public MenuItem selectBurger(Scanner scanner){
+        int select = scanner.nextInt();
+        if(select == 0){
+            System.out.println("================================================================");
+            System.out.println(" answer = 0 버거 카테고리 종료(Level 1 Clear)");
+            System.out.println("================================================================");
+            return null;
+        }
+        else{
+            System.out.println("================================================================");
+            System.out.println("answer = " + select + "다시 입력(Level 1 Clear)");
+            System.out.println("================================================================");
+            viewBurger();
+            selectBurger(scanner);
+            return null;
+        }
     }
 }

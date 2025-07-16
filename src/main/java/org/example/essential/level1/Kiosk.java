@@ -41,8 +41,7 @@ public class Kiosk {
                 return;
             case 1:
                 this.menu.viewBurger();
-                this.category = scanner.nextInt();
-                this.menu.selectBurger(this.category);
+                this.menu.selectBurger(scanner);
                 break;
             case 2:
                 break;
