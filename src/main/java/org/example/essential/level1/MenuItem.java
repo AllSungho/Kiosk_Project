@@ -11,4 +11,13 @@ public class MenuItem {
         this.price = price;
         this.explain = explain;
     }
+    public String getName(){
+        return this.name;
+    }
+    public double getPrice(){
+        return this.price;
+    }
+    public String getExplain(){
+        return this.explain;
+    } 
 }
