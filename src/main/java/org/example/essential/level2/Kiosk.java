@@ -48,6 +48,8 @@ public class Kiosk {
                 viewCategory();
                 break;
             case 2:
+                this.menu.viewBurger();
+                viewCategory();
                 break;
             default:
                 System.out.println("================================================================");
