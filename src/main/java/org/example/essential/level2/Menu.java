@@ -25,6 +25,15 @@ public class Menu {
         juiceList.add(new MenuItem("Orange Juice",2.0, "오렌지 주스"));
         juiceList.add(new MenuItem("Americano",2.0, "아메리카노"));
     }
+
+    public List<MenuItem> getBurgerList() {
+        return burgerList;
+    }
+
+    public List<MenuItem> getJuiceList() {
+        return juiceList;
+    }
+
     // 버거 카테고리 클릭 시 볼 수 카테고리에 포함되는 버거를 출력
     public void viewBurger() {
         System.out.println("================================================================");
