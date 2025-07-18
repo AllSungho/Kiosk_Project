@@ -19,6 +19,11 @@ public class Menu {
         burgerList.add(new MenuItem("Hamburger", 5.4, "비프패티를 기반으로 야채가 들어간 기본버거"));
 
         this.juiceList = new ArrayList<>();
+        juiceList.add(new MenuItem("Coke",2.0, "탄산 음료"));
+        juiceList.add(new MenuItem("Pepsi",2.0, "탄산 음료"));
+        juiceList.add(new MenuItem("Cider",2.0, "탄산 음료"));
+        juiceList.add(new MenuItem("Orange Juice",2.0, "오렌지 주스"));
+        juiceList.add(new MenuItem("Americano",2.0, "아메리카노"));
     }
     // 버거 카테고리 클릭 시 볼 수 카테고리에 포함되는 버거를 출력
     public void viewBurger() {
@@ -44,7 +49,7 @@ public class Menu {
         if(select == 0){
             return;
         }
-        else if(select > 0 && select < 5){
+        else if(select > 0 && select < list.size()){
             System.out.println("================================================================");
             System.out.println("선택한 메뉴: " + burgerList.get(select-1).getName() + "\t| W " + burgerList.get(select-1).getPrice() + "\t|\t" + burgerList.get(select-1).getExplain());
         }
