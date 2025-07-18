@@ -44,10 +44,12 @@ public class Kiosk {
                 System.out.println("================================================================");
                 return;
             case 1:
-                this.menu.viewBurger();
+                this.menu.viewMenu(this.menu.getBurgerList());
                 viewCategory();
                 break;
             case 2:
+                this.menu.viewMenu(this.menu.getDrinkList());
+                viewCategory();
                 break;
             default:
                 System.out.println("================================================================");
