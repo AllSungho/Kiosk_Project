@@ -26,14 +26,6 @@ public class Menu {
         drinkList.add(new MenuItem("Americano",2.0, "아메리카노"));
     }
 
-    public List<MenuItem> getBurgerList() {
-        return burgerList;
-    }
-
-    public List<MenuItem> getDrinkList() {
-        return drinkList;
-    }
-
     // 버거 카테고리 클릭 시 볼 수 카테고리에 포함되는 버거를 출력
     public void viewMenu(List<MenuItem> list) {
         System.out.println("================================================================");
