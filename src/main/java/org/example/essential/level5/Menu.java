@@ -26,10 +26,12 @@ public class Menu {
         drinkList.add(new MenuItem("Americano",2.0, "아메리카노"));
     }
 
+    // 버거 리스트 Getter
     public List<MenuItem> getBurgerList() {
         return burgerList;
     }
 
+    // 음료 리스트 Getter
     public List<MenuItem> getDrinkList() {
         return drinkList;
     }
@@ -45,6 +47,7 @@ public class Menu {
         System.out.println("================================================================");
         selectMenu(new Scanner(System.in), list);
     }
+    // 메뉴 선택 후 결과 값 출력 메소드
     public void selectMenu(Scanner scanner, List<MenuItem> list) {
         int select = 0;
         try {
