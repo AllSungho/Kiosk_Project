@@ -8,6 +8,7 @@ import java.util.Scanner;
 // 시작 지점이 되는 클래스
 public class Main {
     public static void main(String[] args) {
+        // 햄버거를 리스트 형태로 관리
         List<MenuItem> burgerList = new ArrayList<>();
         burgerList.add(new MenuItem("ShackBurger", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거"));
         burgerList.add(new MenuItem("SmokeShack", 8.9, "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거"));
@@ -18,6 +19,7 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
             int select = 0;      // 사용자 입력값
 
+            // 메뉴 출력
             System.out.println("================================================================");
             System.out.println("[ SHAKESHACK MENU ]");
             for(MenuItem i : burgerList){
@@ -25,6 +27,8 @@ public class Main {
             }
             System.out.println("0. 종료\t\t\t| 종료");
             System.out.println("================================================================");
+
+            // 입력 예외 처리
             try{
                 select = scanner.nextInt();
             } catch(InputMismatchException e){
@@ -33,18 +37,18 @@ public class Main {
                 System.out.println("================================================================");
                 continue;
             }
-            if(select==0){
+            if(select==0){                      // 입력값이 0일 경우 키오스크 종료
                 System.out.println("================================================================");
                 System.out.println("키오스크 종료");
                 System.out.println("================================================================");
                 break;
             }
-            else if(select>0 && select <5){
+            else if(select>0 && select <5){     // 입력값이 메뉴가 있는 1에서부터 4까지일 경우 해당 번호의 메뉴 출력
                 System.out.println("================================================================");
                 System.out.println("선택한 메뉴: " + burgerList.get(select - 1).getName() + "\t| W " + burgerList.get(select - 1).getPrice() + "\t|\t" + burgerList.get(select - 1).getExplain());
                 System.out.println("================================================================");
             }
-            else {
+            else {                              // 해당 번호 이외의 입력 시
                 System.out.println("================================================================");
                 System.out.println("잘못된 수 입력(해당 번호의 버거는 없습니다)");
                 System.out.println("================================================================");
