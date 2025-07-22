@@ -7,11 +7,13 @@ import java.util.Scanner;
 public class Kiosk {
     private int category;   // 사용자에게 카테고리 입력을 받는 변수
     private final Menu menu;    // 메뉴를 볼 수 있는 Menu 타입 변수
+    private final ShoppingCart shoppingCart;
     Scanner scanner;
 
     // 생성자로 해당 변수들 초기화
     public Kiosk(){
         menu = new Menu();
+        shoppingCart = new ShoppingCart();
         scanner = new Scanner(System.in);
     }
 
@@ -26,6 +28,7 @@ public class Kiosk {
         System.out.println("[ Category ]");
         System.out.println("1. Burger");
         System.out.println("2. Drink");
+        System.out.println("3. Shopping Cart");
         System.out.println("0. Exit");
         System.out.println("================================================================");
         try{
@@ -48,11 +51,15 @@ public class Kiosk {
                 System.out.println("================================================================");
                 return;
             case 1:         // 메뉴 출력 메소드 호출 (버거)
-                this.menu.viewMenu(this.menu.getBurgerList());
+                this.menu.viewMenu(this.menu.getBurgerList(), this.shoppingCart);
                 viewCategory();
                 break;
             case 2:         // 메뉴 출력 메소드 호출 (음료)
-                this.menu.viewMenu(this.menu.getDrinkList());
+                this.menu.viewMenu(this.menu.getDrinkList(), this.shoppingCart);
+                viewCategory();
+                break;
+            case 3:         // 장바구니 호출 메소드
+                this.shoppingCart.checkShoppingCart();
                 viewCategory();
                 break;
             default:

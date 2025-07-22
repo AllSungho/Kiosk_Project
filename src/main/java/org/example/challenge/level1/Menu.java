@@ -35,7 +35,7 @@ public class Menu {
     public List<MenuItem> getDrinkList() { return drinkList; }
 
     // 매개변수에 따른 메뉴 리스트 출력 메소드
-    public void viewMenu(List<MenuItem> list) {
+    public void viewMenu(List<MenuItem> list, ShoppingCart shoppingCart) {
         System.out.println("================================================================");
         System.out.println("[ SHAKESHACK MENU ]");
         for(MenuItem i : list){
@@ -43,11 +43,11 @@ public class Menu {
         }
         System.out.println("0. Go Back");
         System.out.println("================================================================");
-        selectMenu(new Scanner(System.in), list);
+        selectMenu(new Scanner(System.in), list, shoppingCart);
     }
 
     // 메뉴 리스트 출력 후 사용자에게 입력받고 입력값에 따른 결과를 수행하는 메소드
-    public void selectMenu(Scanner scanner, List<MenuItem> list) {
+    public void selectMenu(Scanner scanner, List<MenuItem> list, ShoppingCart shoppingCart) {
         int select = 0;
         try {
             select = scanner.nextInt();
@@ -63,12 +63,13 @@ public class Menu {
         else if(select > 0 && select < list.size()+1){
             System.out.println("================================================================");
             System.out.println("선택한 메뉴: " + list.get(select-1).getName() + "\t| W " + list.get(select-1).getPrice() + "\t|\t" + list.get(select-1).getExplain());
+            shoppingCart.insertShoppingCart(list.get(select-1));
         }
         else {
             System.out.println("================================================================");
             System.out.println("잘못 입력");
             System.out.println("================================================================");
-            viewMenu(list);
+            viewMenu(list, shoppingCart);
         }
     }
 }
