@@ -11,6 +11,7 @@ public class Menu {
     private final List<MenuItem> burgerList;
     private final List<MenuItem> drinkList;
 
+    // Menu 생성자를 통해 해당 필드들 초기화
     public Menu(){
         this.burgerList = new ArrayList<>();
         burgerList.add(new MenuItem("ShackBurger", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거"));
@@ -26,7 +27,13 @@ public class Menu {
         drinkList.add(new MenuItem("Americano",2.0, "아메리카노"));
     }
 
-    // 버거 카테고리 클릭 시 볼 수 카테고리에 포함되는 버거를 출력
+    // 버거 리스트 Getter
+    public List<MenuItem> getBurgerList() { return burgerList; }
+
+    // 음료 리스트 Getter
+    public List<MenuItem> getDrinkList() { return drinkList; }
+
+    // 매개변수에 따른 메뉴 리스트 출력 메소드
     public void viewMenu(List<MenuItem> list) {
         System.out.println("================================================================");
         System.out.println("[ SHAKESHACK MENU ]");
@@ -37,6 +44,7 @@ public class Menu {
         System.out.println("================================================================");
         selectMenu(new Scanner(System.in), list);
     }
+    // 메뉴 리스트 출력 후 사용자에게 입력받고 입력값에 따른 결과를 수행하는 메소드
     public void selectMenu(Scanner scanner, List<MenuItem> list) {
         int select = 0;
         try {
