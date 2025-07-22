@@ -1,5 +1,6 @@
 package org.example.challenge.level1;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -14,17 +15,17 @@ public class Menu {
     // Menu 생성자를 통해 해당 필드들 초기화
     public Menu(){
         this.burgerList = new ArrayList<>();
-        burgerList.add(new MenuItem("ShackBurger", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거"));
-        burgerList.add(new MenuItem("SmokeShack", 8.9, "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거"));
-        burgerList.add(new MenuItem("Cheeseburger", 6.9, "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거"));
-        burgerList.add(new MenuItem("Hamburger", 5.4, "비프패티를 기반으로 야채가 들어간 기본버거"));
+        burgerList.add(new MenuItem("ShackBurger", new BigDecimal("6.9"), "토마토, 양상추, 쉑소스가 토핑된 치즈버거"));
+        burgerList.add(new MenuItem("SmokeShack", new BigDecimal("8.9"), "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거"));
+        burgerList.add(new MenuItem("Cheeseburger", new BigDecimal("6.9"), "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거"));
+        burgerList.add(new MenuItem("Hamburger", new BigDecimal("5.4"), "비프패티를 기반으로 야채가 들어간 기본버거"));
 
         this.drinkList = new ArrayList<>();
-        drinkList.add(new MenuItem("Coke",2.0, "탄산 음료"));
-        drinkList.add(new MenuItem("Pepsi",2.0, "탄산 음료"));
-        drinkList.add(new MenuItem("Cider",2.0, "탄산 음료"));
-        drinkList.add(new MenuItem("Orange Juice",2.0, "오렌지 주스"));
-        drinkList.add(new MenuItem("Americano",2.0, "아메리카노"));
+        drinkList.add(new MenuItem("Coke",new BigDecimal("2.0"), "탄산 음료"));
+        drinkList.add(new MenuItem("Pepsi",new BigDecimal("2.0"), "탄산 음료"));
+        drinkList.add(new MenuItem("Cider",new BigDecimal("2.0"), "탄산 음료"));
+        drinkList.add(new MenuItem("Orange Juice",new BigDecimal("2.0"), "오렌지 주스"));
+        drinkList.add(new MenuItem("Americano",new BigDecimal("2.0"), "아메리카노"));
     }
 
     // 버거 리스트 Getter
