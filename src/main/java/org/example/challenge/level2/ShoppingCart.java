@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class ShoppingCart {
     private List<MenuItem> shoppingItem;    // 장바구니 내 메뉴 목록
     private BigDecimal payMoney;                   // 총 금액 합계
+    private Enum discountType;
     // 장바구니 생성자: 필드 초기화
     public ShoppingCart(){
         shoppingItem = new ArrayList<>();
@@ -54,6 +55,7 @@ public class ShoppingCart {
             return;
         }
         if(input == 1) {
+            discountPrint();
             System.out.println("================================================================");
             System.out.println("주문이 완료되었습니다. 금액은 W " + this.payMoney + "입니다.");
             shoppingItem.clear();
@@ -106,6 +108,51 @@ public class ShoppingCart {
             System.out.println("================================================================");
             System.out.println("잘못된 수 입력");
             System.out.println("================================================================");
+        }
+    }
+    // 할인 정보
+    public void discountPrint(){
+        System.out.println("================================================================");
+        System.out.println("할인 정보를 입력해주세요.");
+        System.out.println("1. 군인   : 50%");
+        System.out.println("2. 직원   : 30%");
+        System.out.println("3. 학생   : 10%");
+        System.out.println("4. 일반인  : 0%");
+        System.out.println("================================================================");
+        discountSelect();
+    }
+    // 할인 선택
+    public void discountSelect(){
+        Scanner scanner = new Scanner(System.in);
+        int input= 0;
+        try{
+            input = scanner.nextInt();
+            scanner.nextLine();
+        }catch(InputMismatchException e){
+            System.out.println("================================================================");
+            System.out.println("잘못된 수 입력(예외)");
+            System.out.println("================================================================");
+            orderShoppingCart();
+            return;
+        }
+        switch(input){
+            case 1:         // 군인
+                this.payMoney = DiscountType.SOLDIER.discountInfo(this.payMoney);
+                break;
+            case 2:         // 직원
+                this.payMoney = DiscountType.EMPOLYMENT.discountInfo(this.payMoney);
+                break;
+            case 3:         // 학생
+                this.payMoney = DiscountType.STUDENT.discountInfo(this.payMoney);
+                break;
+            case 4:         // 일반인
+                this.payMoney = DiscountType.COMMON.discountInfo(this.payMoney);
+                break;
+            default:
+                System.out.println("================================================================");
+                System.out.println("잘못된 수 입력(예외)");
+                System.out.println("================================================================");
+                discountPrint();
         }
     }
 }
