@@ -36,11 +36,13 @@ public class Menu {
 
     // 매개변수에 따른 메뉴 리스트 출력 메소드
     public void viewMenu(List<MenuItem> list, ShoppingCart shoppingCart) {
+        int countNum = 1;
         System.out.println("================================================================");
         System.out.println("[ SHAKESHACK MENU ]");
         for(MenuItem i : list){
-            System.out.println(list.indexOf(i) + 1 + ". " + i.getName() + "\t| W " + i.getPrice() + "\t|\t" + i.getExplain());
+            System.out.println(countNum++ + ". " + i.getName() + "\t| W " + i.getPrice() + "\t|\t" + i.getExplain());
         }
+
         System.out.println("0. Go Back");
         System.out.println("================================================================");
         selectMenu(new Scanner(System.in), list, shoppingCart);
