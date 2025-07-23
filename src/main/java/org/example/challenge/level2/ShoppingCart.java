@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class ShoppingCart {
     private List<MenuItem> shoppingItem;    // 장바구니 내 메뉴 목록
     private BigDecimal payMoney;                   // 총 금액 합계
-    private Enum discountType;
     // 장바구니 생성자: 필드 초기화
     public ShoppingCart(){
         shoppingItem = new ArrayList<>();
@@ -83,11 +82,13 @@ public class ShoppingCart {
     public void deleteShoppingCart(){
         Scanner scanner = new Scanner(System.in);
         int input = 0;
+        int countNum = 1;
         // 삭제할 메뉴 번호 출력
         System.out.println("========================[Choose Menu]===========================");
         for(MenuItem item : this.shoppingItem){
-            System.out.println( this.shoppingItem.indexOf(item) + 1+ ". " + item.getName() + "\t| W " + item.getPrice() + "\t|\t" + item.getExplain());
+            System.out.println( countNum++ + ". " + item.getName() + "\t| W " + item.getPrice() + "\t|\t" + item.getExplain());
         }
+
         System.out.println("================================================================");
         // 삭제할 메뉴 입력
         try {
@@ -100,8 +101,10 @@ public class ShoppingCart {
             deleteShoppingCart();
             return;
         }
-        if(input > 0 && input < this.shoppingItem.size()){
+        if(input > 0 && input <= this.shoppingItem.size()){
+            // final int select =input;
             this.payMoney = this.payMoney.subtract(this.shoppingItem.get(input-1).getPrice());
+            // this.shoppingItem = this.shoppingItem.stream().filter(menu-> !menu.getName().equals(shoppingItem.get(select - 1).getName())).toList();
             this.shoppingItem.remove(input - 1);
         }
         else{
@@ -150,7 +153,7 @@ public class ShoppingCart {
                 break;
             default:
                 System.out.println("================================================================");
-                System.out.println("잘못된 수 입력(예외)");
+                System.out.println("잘못된 수 입력");
                 System.out.println("================================================================");
                 discountPrint();
         }
