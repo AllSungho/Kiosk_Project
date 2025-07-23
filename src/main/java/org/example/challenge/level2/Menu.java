@@ -39,9 +39,9 @@ public class Menu {
         int countNum = 1;
         System.out.println("================================================================");
         System.out.println("[ SHAKESHACK MENU ]");
-        for(MenuItem i : list){
-            System.out.println(countNum++ + ". " + i.getName() + "\t| W " + i.getPrice() + "\t|\t" + i.getExplain());
-        }
+
+        // 스트림을 사용한 메뉴 리스트 출력
+        list.stream().forEach(i -> System.out.println(list.indexOf(i)+1 + ". " + i.getName() + "\t| W " + i.getPrice() + "\t|\t" + i.getExplain()));
 
         System.out.println("0. Go Back");
         System.out.println("================================================================");
