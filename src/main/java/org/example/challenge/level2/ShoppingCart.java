@@ -47,9 +47,7 @@ public class ShoppingCart {
             input = scanner.nextInt();
             scanner.nextLine();
         }catch(InputMismatchException e){
-            System.out.println("================================================================");
-            System.out.println("잘못된 수 입력(예외)");
-            System.out.println("================================================================");
+            Kiosk.printFail();
             orderShoppingCart();
             return;
         }
@@ -67,9 +65,7 @@ public class ShoppingCart {
             return;
         }
         else {
-            System.out.println("================================================================");
-            System.out.println("잘못된 수 입력(조건문)");
-            System.out.println("================================================================");
+            Kiosk.printFail();
             orderShoppingCart();
         }
     }
@@ -95,9 +91,7 @@ public class ShoppingCart {
             input = scanner.nextInt();
             scanner.nextLine();
         }catch(InputMismatchException e){
-            System.out.println("================================================================");
-            System.out.println("잘못된 수 입력(예외)");
-            System.out.println("================================================================");
+            Kiosk.printFail();
             deleteShoppingCart();
             return;
         }
@@ -108,9 +102,7 @@ public class ShoppingCart {
             this.shoppingItem.remove(input - 1);
         }
         else{
-            System.out.println("================================================================");
-            System.out.println("잘못된 수 입력");
-            System.out.println("================================================================");
+            Kiosk.printFail();
         }
     }
     // 할인 정보
@@ -132,9 +124,7 @@ public class ShoppingCart {
             input = scanner.nextInt();
             scanner.nextLine();
         }catch(InputMismatchException e){
-            System.out.println("================================================================");
-            System.out.println("잘못된 수 입력(예외)");
-            System.out.println("================================================================");
+            Kiosk.printFail();
             orderShoppingCart();
             return;
         }
@@ -152,9 +142,7 @@ public class ShoppingCart {
                 this.payMoney = DiscountType.COMMON.discountInfo(this.payMoney);
                 break;
             default:
-                System.out.println("================================================================");
-                System.out.println("잘못된 수 입력");
-                System.out.println("================================================================");
+                Kiosk.printFail();
                 discountPrint();
         }
     }

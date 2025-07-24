@@ -1,5 +1,7 @@
 package org.example.challenge.level1;
 
+import org.example.essential.level5.Kiosk;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -53,9 +55,7 @@ public class Menu {
             select = scanner.nextInt();
             scanner.nextLine();
         } catch (InputMismatchException e) {
-            System.out.println("================================================================");
-            System.out.println("잘못된 수 입력");
-            System.out.println("================================================================");
+            Kiosk.printFail();
         }
         if(select == 0){
             return;
@@ -66,9 +66,7 @@ public class Menu {
             shoppingCart.insertShoppingCart(list.get(select-1));
         }
         else {
-            System.out.println("================================================================");
-            System.out.println("잘못 입력");
-            System.out.println("================================================================");
+            Kiosk.printFail();
             viewMenu(list, shoppingCart);
         }
     }
