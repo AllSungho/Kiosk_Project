@@ -43,9 +43,7 @@ public class Kiosk {
             select = scanner.nextInt();
             scanner.nextLine();
         } catch (InputMismatchException e) {
-            System.out.println("================================================================");
-            System.out.println("잘못된 수 입력");
-            System.out.println("================================================================");
+            printFail();
             viewBurger();
             return;     // 해당 메소드 종료
         }
@@ -60,10 +58,14 @@ public class Kiosk {
             viewBurger();
         }
         else {      // 해당 번호 이외의 입력 시
-            System.out.println("================================================================");
-            System.out.println("잘못 입력");
-            System.out.println("================================================================");
+            printFail();
             viewBurger();
         }
+    }
+    // 잘못된 수 입력 출력
+    public static void printFail(){
+        System.out.println("================================================================");
+        System.out.println("잘못된 수 입력");
+        System.out.println("================================================================");
     }
 }

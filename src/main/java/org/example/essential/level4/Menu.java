@@ -51,9 +51,7 @@ public class Menu {
             select = scanner.nextInt();
             scanner.nextLine();
         } catch (InputMismatchException e) {
-            System.out.println("================================================================");
-            System.out.println("잘못된 수 입력");
-            System.out.println("================================================================");
+            Kiosk.printFail();
         }
         if(select == 0){
             return;
@@ -63,9 +61,7 @@ public class Menu {
             System.out.println("선택한 메뉴: " + list.get(select-1).getName() + "\t| W " + list.get(select-1).getPrice() + "\t|\t" + list.get(select-1).getExplain());
         }
         else {
-            System.out.println("================================================================");
-            System.out.println("잘못 입력");
-            System.out.println("================================================================");
+            Kiosk.printFail();
             viewMenu(list);
         }
     }

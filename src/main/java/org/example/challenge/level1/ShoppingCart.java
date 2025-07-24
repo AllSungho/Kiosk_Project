@@ -1,5 +1,7 @@
 package org.example.challenge.level1;
 
+import org.example.essential.level5.Kiosk;
+
 import javax.management.ListenerNotFoundException;
 import java.math.BigDecimal;
 import java.util.InputMismatchException;
@@ -48,9 +50,7 @@ public class ShoppingCart {
             input = scanner.nextInt();
             scanner.nextLine();
         }catch(InputMismatchException e){
-            System.out.println("================================================================");
-            System.out.println("잘못된 수 입력(예외)");
-            System.out.println("================================================================");
+            Kiosk.printFail();
             orderShoppingCart();
             return;
         }
@@ -67,9 +67,7 @@ public class ShoppingCart {
             return;
         }
         else {
-            System.out.println("================================================================");
-            System.out.println("잘못된 수 입력(조건문)");
-            System.out.println("================================================================");
+            Kiosk.printFail();
             orderShoppingCart();
         }
     }
@@ -93,9 +91,7 @@ public class ShoppingCart {
             input = scanner.nextInt();
             scanner.nextLine();
         }catch(InputMismatchException e){
-            System.out.println("================================================================");
-            System.out.println("잘못된 수 입력(예외)");
-            System.out.println("================================================================");
+            Kiosk.printFail();
             deleteShoppingCart();
             return;
         }
@@ -104,9 +100,7 @@ public class ShoppingCart {
             this.shoppingItem.remove(input - 1);
         }
         else{
-            System.out.println("================================================================");
-            System.out.println("잘못된 수 입력");
-            System.out.println("================================================================");
+            Kiosk.printFail();
         }
     }
 }

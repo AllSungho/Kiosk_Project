@@ -35,9 +35,7 @@ public class Kiosk {
             this.category = scanner.nextInt();
             selectCategory(this.category);
         }catch(InputMismatchException e){
-            System.out.println("================================================================");
-            System.out.println("잘못된 수 입력");
-            System.out.println("================================================================");
+            printFail();
             scanner.nextLine();
             viewCategory();
         }
@@ -63,10 +61,14 @@ public class Kiosk {
                 viewCategory();
                 break;
             default:
-                System.out.println("================================================================");
-                System.out.println("잘못된 수 입력");
-                System.out.println("================================================================");
+                printFail();
                 viewCategory();
         }
+    }
+    // 잘못된 수 입력 출력
+    public static void printFail(){
+        System.out.println("================================================================");
+        System.out.println("잘못된 수 입력");
+        System.out.println("================================================================");
     }
 }
